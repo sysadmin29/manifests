@@ -9,13 +9,11 @@ metadata:
     # argocd-image-updater.argoproj.io/alyas.update-strategy: name
     # argocd-image-updater.argoproj.io/alyas.allow-tags: null
  
-  finalizers:
-    - finalizer.argocd.argoproj.io/resources
 spec:
   destination:
     namespace: null
     server: https://kubernetes.default.svc
-  project: three-tier-application
+  project: default
   source:
     path: null
     repoURL: git@github.com:sysadmin29/manifests.git
