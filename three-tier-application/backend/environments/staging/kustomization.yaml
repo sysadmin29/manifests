@@ -6,7 +6,7 @@ nameSuffix: -staging
 
 images:
   - name: ghcr.io/sysadmin29/back-end
-    newTag: v0.0.2-alpha
+    newTag: v1.0.5-alpha
 
 replicas:
   - name: backend
