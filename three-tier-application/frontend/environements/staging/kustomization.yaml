@@ -22,9 +22,9 @@ configMapGenerator:
   - name: frontend-config
     env: config.properties
 
-secretGenerator:
-   - name: frontend-secrets
-     env: secrets.properties
+#secretGenerator:
+#   - name: frontend-secrets
+#    env: secrets.properties
 
 patches:
   - target:
