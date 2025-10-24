@@ -18,7 +18,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: frontend-config
-            - secretRef:
-                name: frontend-secrets
+#            - secretRef:
+#                name: frontend-secrets
       imagePullSecrets:
         - name: github-container-registry
