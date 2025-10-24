@@ -8,7 +8,7 @@ patches:
       group: argoproj.io
       version: v1alpha1
       kind: Application
-      name: backend
+      name: frontend
     patch: |-
       - op: replace
         path: /metadata/annotations/argocd-image-updater.argoproj.io~1image-list
@@ -21,4 +21,4 @@ patches:
         value: staging
       - op: replace
         path: /spec/source/path
-        value: three-tier-application/backend/environments/staging
+        value: three-tier-application/frontend/environments/staging
