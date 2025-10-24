@@ -1,0 +1,38 @@
+resources:
+  - ../../base
+namespace: three-tier-application
+
+nameSuffix: -staging
+
+images:
+  - name: ghcr.io/sysadmin29/front-end
+    newTag: v1.0.2-alpha
+
+replicas:
+  - name: frontend
+    count: 1
+
+labels:
+  - includeSelectors: true
+    includeTemplates: true
+    pairs:
+      app.kubernetes.io/part-of: "frontend-staging"
+
+configMapGenerator:
+  - name: frontend-config
+    env: config.properties
+
+secretGenerator:
+   - name: frontend-secrets
+     env: secrets.properties
+
+patches:
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: frontend
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/envFrom/1/secretRef/name
+        value: frontend-secrets-staging
