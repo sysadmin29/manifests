@@ -14,7 +14,7 @@ spec:
         - name: frontend
           image: ghcr.io/sysadmin29/front-end:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 80
           envFrom:
             - configMapRef:
                 name: frontend-config
