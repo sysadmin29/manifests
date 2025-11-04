@@ -18,6 +18,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: frontend-config
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"      
 #            - secretRef:
 #                name: frontend-secrets
       imagePullSecrets:
