@@ -20,5 +20,12 @@ spec:
                 name: backend-config
             - secretRef:
                 name: backend-secrets
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
       imagePullSecrets:
         - name: github-container-registry
