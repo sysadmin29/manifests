@@ -10,7 +10,7 @@ images:
 
 replicas:
   - name: backend
-    count: 3
+    count: 1
 
 labels:
   - includeSelectors: true
