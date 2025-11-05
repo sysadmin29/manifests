@@ -8,9 +8,9 @@ images:
   - name: ghcr.io/sysadmin29/back-end
     newTag: v1.0.5-alpha
 
-replicas:
-  - name: backend
-    count: 1
+# replicas:
+#   - name: backend
+#     count: 1
 
 labels:
   - includeSelectors: true
