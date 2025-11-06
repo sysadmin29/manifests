@@ -2,9 +2,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend-ingress
+  namespace: three-tier-application
   annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - frontend-staging.aura.local
+      secretName: frontend-staging-tls
   rules:
     - host: frontend-staging.aura.local
       http:
