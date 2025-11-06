@@ -2,9 +2,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: backend-ingress
+  namespace: three-tier-application
   annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - backend-staging.aura.local
+      secretName: backend-staging-tls
   rules:
     - host: backend-staging.aura.local
       http:
