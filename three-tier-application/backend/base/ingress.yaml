@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
         - backend-staging.aura.local
-      secretName: backend-tls
+      secretName: backend-staging-tls
   rules:
     - host: backend-staging.aura.local
       http:
