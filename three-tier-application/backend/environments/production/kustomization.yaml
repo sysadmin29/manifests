@@ -1,0 +1,38 @@
+resources:
+  - ../../base
+namespace: three-tier-application
+
+#nameSuffix: -production
+
+images:
+  - name: ghcr.io/sysadmin29/back-end
+    newTag: v1.0.3
+
+# replicas:
+#   - name: backend
+#     count: 1
+
+labels:
+  - includeSelectors: true
+    includeTemplates: true
+    pairs:
+      app.kubernetes.io/part-of: "backend"
+
+configMapGenerator:
+  - name: backend-config
+    env: config.properties
+
+# secretGenerator:
+#   - name: backend-secrets
+#     env: secrets.properties
+
+patches:
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: backend
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/envFrom/1/secretRef/name
+        value: backend-secrets

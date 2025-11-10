@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - ghcr.io/sysadmin29/back-end:v1.0.3
