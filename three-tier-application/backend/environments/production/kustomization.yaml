@@ -2,7 +2,7 @@ resources:
   - ../../base
 namespace: three-tier-application
 
-nameSuffix: -production
+#nameSuffix: -production
 
 images:
   - name: ghcr.io/sysadmin29/back-end
