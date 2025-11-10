@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - backend.aura.local
+        - backend-staging.aura.local
       secretName: backend-tls
   rules:
-    - host: backend.aura.local
+    - host: backend-staging.aura.local
       http:
         paths:
           - path: /
