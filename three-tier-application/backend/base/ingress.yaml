@@ -6,11 +6,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - backend.aura.local
-      secretName: backend-tls
   rules:
     - host: backend.aura.local
       http:
@@ -22,3 +17,8 @@ spec:
                 name: backend-service
                 port:
                   number: 8000
+  tls:
+  - hosts:
+    - backend.aura.local
+    secretName: backend-tls
+      
