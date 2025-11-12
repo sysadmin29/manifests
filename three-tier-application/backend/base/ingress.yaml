@@ -9,16 +9,16 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - backend.aura.local
-      secretName: backend-tls
+        - backend-staging.aura.local
+      secretName: backend-staging-tls
   rules:
-    - host: backend.aura.local
+    - host: backend-staging.aura.local
       http:
         paths:
-          - path: /prod
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: backend-service
+                name: backend-service-staging
                 port:
                   number: 8000
