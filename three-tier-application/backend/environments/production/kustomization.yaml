@@ -25,6 +25,8 @@ configMapGenerator:
 # secretGenerator:
 #   - name: backend-secrets
 #     env: secrets.properties
+#     options:
+#       disableNameSuffixHash: true
 
 patches:
   - target:
