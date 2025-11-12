@@ -15,7 +15,7 @@ spec:
     - host: backend.aura.local
       http:
         paths:
-          - path: /prod/backend
+          - path: /
             pathType: Prefix
             backend:
               service:
