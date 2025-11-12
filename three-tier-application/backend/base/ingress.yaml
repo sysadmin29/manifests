@@ -15,7 +15,7 @@ spec:
     - host: backend-staging.aura.local
       http:
         paths:
-          - path: /
+          - path: /prod
             pathType: Prefix
             backend:
               service:
