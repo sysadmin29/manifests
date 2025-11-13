@@ -19,7 +19,7 @@ labels:
       app.kubernetes.io/part-of: "frontend"
 
 configMapGenerator:
-  - name: frontend-config
+  - name: frontend-config-prod
     env: config.properties
 
 #secretGenerator:

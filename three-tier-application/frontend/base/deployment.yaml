@@ -17,7 +17,7 @@ spec:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: frontend-config
+                name: frontend-config-prod
           resources:
             requests:
               memory: "128Mi"
