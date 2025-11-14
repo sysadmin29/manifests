@@ -19,7 +19,7 @@ labels:
       app.kubernetes.io/part-of: "backend"
 
 configMapGenerator:
-  - name: backend-config-prod
+  - name: backend-config
     env: config.properties
 
 # secretGenerator:
@@ -37,4 +37,19 @@ patches:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/envFrom/1/secretRef/name
-        value: backend-secrets
+        value: backend-secrets-production
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: backend-ingress
+    patch: |-
+      - op: replace
+        path: /spec/tls/0/hosts/0
+        value: backend.aura.local
+      - op: replace
+        path: /spec/tls/0/secretName
+        value: backend-tls
+      - op: replace
+        path: /spec/rules/0/host
+        value: backend.aura.local
