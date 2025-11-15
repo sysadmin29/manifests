@@ -19,7 +19,7 @@ labels:
       app.kubernetes.io/part-of: "frontend"
 
 configMapGenerator:
-  - name: frontend-config-prod
+  - name: frontend-config
     env: config.properties
 
 patches:
