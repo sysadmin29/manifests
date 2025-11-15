@@ -2,7 +2,7 @@ resources:
   - ../../base
 namespace: three-tier-application
 
-#nameSuffix: -staging
+nameSuffix: -production
 
 images:
   - name: ghcr.io/sysadmin29/front-end
@@ -21,6 +21,24 @@ labels:
 configMapGenerator:
   - name: frontend-config-prod
     env: config.properties
+
+
+patches:
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: frontend-ingress
+    patch: |-
+      - op: replace
+        path: /spec/tls/0/hosts/0
+        value: frontend.aura.local
+      - op: replace
+        path: /spec/tls/0/secretName
+        value: frontend-tls
+      - op: replace
+        path: /spec/rules/0/host
+        value: frontend.aura.local 
 
 #secretGenerator:
 #   - name: frontend-secrets
