@@ -22,7 +22,6 @@ configMapGenerator:
   - name: frontend-config-prod
     env: config.properties
 
-
 patches:
   - target:
       group: networking.k8s.io
