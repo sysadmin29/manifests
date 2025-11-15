@@ -19,7 +19,7 @@ labels:
       app.kubernetes.io/part-of: "frontend"
 
 configMapGenerator:
-  - name: frontend-config
+  - name: frontend-config-production
     env: config.properties
 
 patches:
@@ -37,7 +37,7 @@ patches:
         value: frontend-tls
       - op: replace
         path: /spec/rules/0/host
-        value: frontend.aura.local 
+        value: frontend.aura.local
 
 #secretGenerator:
 #   - name: frontend-secrets
