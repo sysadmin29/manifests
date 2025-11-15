@@ -1,7 +1,7 @@
 resources:
   - ../../base
  
-#nameSuffix: -staging
+nameSuffix: -production
  
 patches:
   - target:
