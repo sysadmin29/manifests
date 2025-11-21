@@ -21,6 +21,8 @@ labels:
 configMapGenerator:
   - name: frontend-config
     env: config.properties
+generatorOptions:
+  disableNameSuffixHash: true
 
 patches:
   - target:
