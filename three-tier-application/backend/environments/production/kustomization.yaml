@@ -16,7 +16,7 @@ labels:
   - includeSelectors: true
     includeTemplates: true
     pairs:
-      app.kubernetes.io/part-of: "backend"
+      app.kubernetes.io/part-of: "backend-production"
 
 configMapGenerator:
   - name: backend-config
